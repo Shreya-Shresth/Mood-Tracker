@@ -1,0 +1,166 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.6s ease-in-out, color 0.5s ease;
+    background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+    color: #333;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  
+  body.dark {
+    background: linear-gradient(to right, #121212, #1e1e1e);
+    color: #e0e0e0;
+  }
+  
+  /* Mood Gradients */
+  body.happy {
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+  }
+  body.sad {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  }
+  body.excited {
+    background: linear-gradient(135deg, #f9d423, #ff4e50);
+  }
+  body.calm {
+    background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+  }
+  
+  body.dark.happy {
+    background: linear-gradient(135deg, #7c6e14, #b49f0a);
+  }
+  body.dark.sad {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+  }
+  body.dark.excited {
+    background: linear-gradient(135deg, #8e0e00, #1f1c18);
+  }
+  body.dark.calm {
+    background: linear-gradient(135deg, #304352, #d7d2cc);
+  }
+  
+  .container {
+    text-align: center;
+    max-width: 600px;
+    animation: fadeUp 1s ease-out;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    animation: bounceIn 1s ease-in-out;
+  }
+  
+  .mood-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .mood {
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+  }
+  
+  body.dark .mood {
+    background: #333;
+    color: #fff;
+  }
+  
+  .mood:hover {
+    transform: scale(1.1);
+    background: #f0f0f0;
+  }
+  
+  #suggestion-box {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 15px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    min-height: 60px;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+  }
+  
+  body.dark #suggestion-box {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Dark Mode Toggle */
+  .toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  #theme-toggle {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  #theme-toggle:hover {
+    background-color: #555;
+  }
+  
+  body.dark #theme-toggle {
+    background-color: #eee;
+    color: #121212;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .mood {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes bounceIn {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  
