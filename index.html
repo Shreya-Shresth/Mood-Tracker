@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Mood Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="toggle-container">
+    <button id="theme-toggle">🌙 Dark Mode</button>
+  </div>
+
+  <div class="container">
+    <h1>How are you feeling today?</h1>
+    <div class="mood-options">
+      <button class="mood" data-mood="happy" data-tip="Spread your smile to others today!">😊 Happy</button>
+      <button class="mood" data-mood="sad" data-tip="Take deep breaths and talk to someone you trust.">😢 Sad</button>
+      <button class="mood" data-mood="excited" data-tip="Channel your energy into something creative!">🤩 Excited</button>
+      <button class="mood" data-mood="calm" data-tip="Keep enjoying the peaceful vibes.">😌 Calm</button>
+    </div>
+    <div id="suggestion-box">
+      <p id="suggestion-text">Select a mood to get a tip!</p>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.mood');
+    const suggestionText = document.getElementById('suggestion-text');
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const mood = button.dataset.mood;
+        const tip = button.dataset.tip;
+
+        body.className = ''; // reset classes
+        body.classList.add(mood); // apply mood class
+        if (body.classList.contains('dark')) {
+          body.classList.add('dark');
+        }
+
+        suggestionText.textContent = tip;
+        suggestionText.classList.add("fade-in");
+        setTimeout(() => suggestionText.classList.remove("fade-in"), 1000);
+      });
+    });
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      themeToggle.textContent = body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+  </script>
+</body>
+</html>
